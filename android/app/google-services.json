@@ -1,0 +1,151 @@
+{
+  "project_info": {
+    "project_number": "842520575978",
+    "firebase_url": "https://plan20-test-97635.firebaseio.com",
+    "project_id": "plan20-test-97635",
+    "storage_bucket": "plan20-test-97635.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842520575978:android:1d54adafddcd8ce4b23c93",
+        "android_client_info": {
+          "package_name": "com.example.trakcer_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842520575978-4pilmrbufh1ps6qtm5k44q90bbrd67v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU9tuQSlKNFRs3dF0dm3SgGicPfEDH7k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842520575978-4pilmrbufh1ps6qtm5k44q90bbrd67v0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842520575978-2pv0mt18f11ohn2hq96sgkqi5gjgp9v6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.plan20.plan20TestHelper"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842520575978:android:bf5326601a301e68b23c93",
+        "android_client_info": {
+          "package_name": "com.plan20.plan20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842520575978-11ee0mbt3lgv3ns6a84aotv4crm6euhp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plan20.plan20",
+            "certificate_hash": "3713d54b491ce0a358b23b9663e2d991edcba39c"
+          }
+        },
+        {
+          "client_id": "842520575978-77jlfsvso4oadluuflj4g2gdfljlk1g1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plan20.plan20",
+            "certificate_hash": "2b9608111cf676cad5640cd3f4897c537151c86c"
+          }
+        },
+        {
+          "client_id": "842520575978-ja9kibvff04rehd6knbu5h402m0369ee.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plan20.plan20",
+            "certificate_hash": "c628da948f98ef94a64cc541a80addd6ce64d93f"
+          }
+        },
+        {
+          "client_id": "842520575978-m3r2p5k3poc36hiqa721lelllpga11nj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plan20.plan20",
+            "certificate_hash": "37e423a9169d3ffef466cfca2395fd4eedf41a37"
+          }
+        },
+        {
+          "client_id": "842520575978-4pilmrbufh1ps6qtm5k44q90bbrd67v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU9tuQSlKNFRs3dF0dm3SgGicPfEDH7k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842520575978-4pilmrbufh1ps6qtm5k44q90bbrd67v0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842520575978-2pv0mt18f11ohn2hq96sgkqi5gjgp9v6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.plan20.plan20TestHelper"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842520575978:android:64431f3491085387b23c93",
+        "android_client_info": {
+          "package_name": "com.plan20.plan20_test_helper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842520575978-4pilmrbufh1ps6qtm5k44q90bbrd67v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU9tuQSlKNFRs3dF0dm3SgGicPfEDH7k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842520575978-4pilmrbufh1ps6qtm5k44q90bbrd67v0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842520575978-2pv0mt18f11ohn2hq96sgkqi5gjgp9v6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.plan20.plan20TestHelper"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
