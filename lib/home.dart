@@ -174,6 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Text('트래커 시작하기'),
               ),
+              SizedBox(height: 20),
               RaisedButton(
                 onPressed: () async{
                   bool result = await checkLocationPermissions();

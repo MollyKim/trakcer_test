@@ -5,14 +5,13 @@ final FirebaseFirestore store = FirebaseFirestore.instance;
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 
-  setStartTackerData(String macAddress, Map<String, dynamic> data) async{
-    store.doc('BetaTestTracker/$macAddress')
-        .set(data,SetOptions(merge: true));
-  }
+setTackerData(String macAddress, num value, DateTime now) async{
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  Map<String, dynamic> data = {
+    'createdAt' : now,
+    'value' : value,
+    'setUserKey' : auth.currentUser.uid,
+  };
 
-  setEndTrackerData(String macAddress, num value) async{
-    store.doc('BetaTestTracker/$macAddress').update({
-      'value': value,
-      'updateUserKey' : auth.currentUser.uid
-    });
+    store.collection('BetaTestTracker/$macAddress/log').add(data);
   }
