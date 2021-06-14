@@ -45,7 +45,7 @@ Widget fail(BuildContext context) {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/image/machine_link/connecting_fail_icon.png'),
+          Icon(Icons.cancel,color: Colors.red,),
           SizedBox(width: 13),
           Text("연결에 실패했습니다.",)
         ],),

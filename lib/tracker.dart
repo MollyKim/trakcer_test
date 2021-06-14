@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert' show utf8;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:intl/intl.dart';
+import 'package:trakcer_test/firestore.dart';
 
 startTracker(FlutterBlue flutterBlue, ScanResult scanResult ) async{
   List<BluetoothCharacteristic> characteristic;
@@ -44,7 +46,14 @@ print(startCommend);
       print('code : $code');
       data = data.sublist(2);
       if( code == 'ST') {
+        final FirebaseAuth auth = FirebaseAuth.instance;
 
+        Map<String, dynamic> data = {
+          'createdAt' : now,
+          'value' : 0,
+          'setUserKey' : auth.currentUser.uid,
+        };
+        await setStartTackerData(scanResult.device.id.toString(),data );
         start = true;
       }
     }
