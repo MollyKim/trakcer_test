@@ -97,7 +97,7 @@ _endStream(ScanResult scanResult, List<BluetoothCharacteristic> characteristic,D
       data = data.sublist(2);
       if( code == 'A2') {
         act = true;
-        num value = (data[0] + data[1] * 256 + data[2] * 65536) ;// /60;
+        num value = (data[0] + data[1] * 256 + data[2] * 65536) / 60;
         await setTackerData(scanResult.device.id.toString(), value.round(), now );
         await characteristic[0].write(utf8.encode('DEL1'), withoutResponse: true);
       }

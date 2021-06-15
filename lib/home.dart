@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:trakcer_test/data_model.dart';
 import 'package:trakcer_test/tracker.dart';
 import 'dialogs.dart';
+import 'package:trakcer_test/firestore.dart';
 
 class Home extends StatelessWidget {
   // This widget is the root of your application.
@@ -156,6 +159,30 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  showData() async{
+    List<TrackerData> data = await getTrackerData();
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(title: Text('데이터 한눈에 보기'),
+            content: ListView.builder(
+              itemCount: data.length,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, index){
+                  return ListTile(
+                    title: InkWell(
+                      onTap: (){},
+                      child: Text(
+                          '날짜 : ' + DateFormat('MM/dd hh:mm').format(data[index].createdAt).toString() +'\n'
+                          + '측정 결과 : ' +data[index].value.toString() +'분\n'
+                          + '기기 : ' + data[index].macAddress.toString()+'\n'),
+                    ),
+                  );
+              },
+            ),
+        )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -183,12 +210,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Text('트래커 테스트 종료'),
               ),
+              SizedBox(height: 20),
+              RaisedButton(
+                onPressed: () async{
+                  showData();
+                },
+                child: Text('트래커 테스트 결과 보기'),
+              ),
             ]
         ),
       ),
     );
   }
 }
+
+
+
 
 Future<bool> checkLocationPermissions() async {
   bool result = false;
