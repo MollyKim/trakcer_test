@@ -1,11 +1,13 @@
 class TrackerData {
   DateTime createdAt;
   num value;
+  num battery;
   String macAddress;
 
   TrackerData({
     this.createdAt,
     this.value = 0,
+    this.battery = 0,
     this.macAddress,
   });
 
@@ -13,6 +15,7 @@ class TrackerData {
     return new TrackerData(
       createdAt: json['createdAt'].toDate() as DateTime,
       value: json['value'] as num,
+      battery: json['battery'] as num,
       macAddress: json['macAddress'] as String,
     );
   }

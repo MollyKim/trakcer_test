@@ -81,6 +81,8 @@ endTracker(FlutterBlue flutterBlue, ScanResult scanResult ) async{
 _endStream(ScanResult scanResult, List<BluetoothCharacteristic> characteristic,DateTime now ) async{
   bool end = false;
   bool act = false;
+  bool bat = false;
+  num battery = 0;
 
   if(!characteristic[1].isNotifying)
     await characteristic[1].setNotifyValue(true);
@@ -89,22 +91,29 @@ _endStream(ScanResult scanResult, List<BluetoothCharacteristic> characteristic,D
   subscription = characteristic[1].value.listen((data) async {
     print('data : $data');
     if(data.isEmpty){
-      await characteristic[0].write(utf8.encode('ACT2'), withoutResponse: true);
+      await characteristic[0].write(utf8.encode('BAT'), withoutResponse: true);
+
     }
     else {
       String code = String.fromCharCodes(data,0,2);
       print('code : $code');
       data = data.sublist(2);
+      if( code == 'BA') {
+        bat = true;
+        battery = data.first;
+        await characteristic[0].write(utf8.encode('ACT2'), withoutResponse: true);
+      }
       if( code == 'A2') {
         act = true;
         num value = (data[0] + data[1] * 256 + data[2] * 65536) / 60;
-        await setTackerData(scanResult.device.id.toString(), value.round(), now );
+        await setTackerData(scanResult.device.id.toString(), value.round(), now, battery );
         await characteristic[0].write(utf8.encode('DEL1'), withoutResponse: true);
       }
-      if( code == 'D1')
+      if( code == 'D1') {
         end = true;
+      }
     }
-    if(end == true && act == true){
+    if(end == true && act == true && bat == true){
       print('측정 끝남');
       await subscription.cancel();
       if(characteristic[1].isNotifying)

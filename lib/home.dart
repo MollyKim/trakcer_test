@@ -163,22 +163,23 @@ class _MyHomePageState extends State<MyHomePage> {
     List<TrackerData> data = await getTrackerData();
     return showDialog(
         context: context,
-        builder: (context) => AlertDialog(title: Text('데이터 한눈에 보기'),
-            content: ListView.builder(
-              itemCount: data.length,
-              shrinkWrap: true,
-              itemBuilder: (BuildContext context, index){
-                  return ListTile(
-                    title: InkWell(
-                      onTap: (){},
-                      child: Text(
-                          '날짜 : ' + DateFormat('MM/dd hh:mm').format(data[index].createdAt).toString() +'\n'
-                          + '측정 결과 : ' +data[index].value.toString() +'분\n'
-                          + '기기 : ' + data[index].macAddress.toString()+'\n'),
-                    ),
-                  );
-              },
-            ),
+        builder: (context) => AlertDialog(
+          title: Text('데이터 한눈에 보기  Battery : ${data[0].battery.toString()}'),
+          content: ListView.builder(
+            itemCount: data.length,
+            shrinkWrap: true,
+            itemBuilder: (BuildContext context, index){
+                return ListTile(
+                  title: InkWell(
+                    onTap: (){},
+                    child: Text(
+                        '날짜 : ' + DateFormat('MM/dd hh:mm').format(data[index].createdAt).toString() +'\n'
+                        + '측정 결과 : ' +data[index].value.toString() +'분\n'
+                        + '기기 : ' + data[index].macAddress.toString()+'\n'),
+                  ),
+                );
+            },
+          ),
         )
     );
   }
