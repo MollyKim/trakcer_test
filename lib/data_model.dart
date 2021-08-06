@@ -26,6 +26,7 @@ class TrackerData {
     Map<String, dynamic> toJson() {
       return {
         'createdAt' : this.createdAt,
+        'battery' : this.battery,
         'value' : this.value,
         'macAddress' : this.macAddress,
         'name' : this.name,

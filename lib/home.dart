@@ -48,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     flutterBlue.startScan();
 
     return showDialog(
+      barrierDismissible: false,
       context: context,
       builder: (context) => AlertDialog(title: Text('플랜이공 기기연결하기'),
         content: SizedBox(

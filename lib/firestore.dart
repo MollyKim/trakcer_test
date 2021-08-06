@@ -1,17 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:trakcer_test/data_model.dart';
-
 final FirebaseFirestore store = FirebaseFirestore.instance;
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 
 setTackerData(String macAddress,String name, num value, DateTime now, num battery) async{
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  await FirebaseAuth.instance.signInAnonymously();
   Map<String, dynamic> data = {
     'createdAt' : now,
     'value' : value,
-    'setUserKey' : auth.currentUser.uid,
     'macAddress' : macAddress,
     'battery' : battery,
     'name' : name,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trakcer_test/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:trakcer_test/home.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AuthScreen(),
+      home: Home(),
     );
   }
 }
