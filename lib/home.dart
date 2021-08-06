@@ -59,15 +59,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 Set<ScanResult> scanResultSet = Set<ScanResult> ();
                 if (snapshot.hasData) {
                   for (var i in snapshot.data) {
-                    scanResultSet.add(i);
-                    // if (i.advertisementData.manufacturerData.isNotEmpty) {
-                    //   var manufacturerData = i.advertisementData.manufacturerData
-                    //       .values.last;
-                    //   if (manufacturerData.length >= 15 && listEquals(
-                    //       manufacturerData.toList().sublist(0, 10), PLAN20MATE)) {
-                    //     scanResultSet.add(i);
-                    //   }
-                    // }
+                    if (i.advertisementData.manufacturerData.isNotEmpty) {
+                      var manufacturerData = i.advertisementData.manufacturerData
+                          .values.last;
+                      if (manufacturerData.length >= 15 && listEquals(
+                          manufacturerData.toList().sublist(0, 10), PLAN20MATE)) {
+                        scanResultSet.add(i);
+                      }
+                    }
                   }
                   List<ScanResult> scanResultData = scanResultSet.toList();
                   return ListView.builder(
@@ -79,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         if(name =="")
                           name = "unknown";
                         return ListTile(
-                          title: RaisedButton(
+                          title: ElevatedButton(
                               child: Text(
                                   name + '\n' +
                                       scanResultData[index].device.id.toString()),
@@ -198,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async{
                   bool result = await checkLocationPermissions();
                   if(result)
@@ -207,7 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('트래커 시작하기'),
               ),
               SizedBox(height: 20),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async{
                   bool result = await checkLocationPermissions();
                   if(result)
@@ -216,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('트래커 테스트 종료'),
               ),
               SizedBox(height: 20),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async{
                   showData();
                 },
