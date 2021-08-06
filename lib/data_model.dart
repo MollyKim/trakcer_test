@@ -3,12 +3,14 @@ class TrackerData {
   num value;
   num battery;
   String macAddress;
+  String tagName;
 
   TrackerData({
     this.createdAt,
     this.value = 0,
     this.battery = 0,
     this.macAddress,
+    this.tagName,
   });
 
   factory TrackerData.fromMap(Map<String, dynamic> json) {
@@ -17,6 +19,7 @@ class TrackerData {
       value: json['value'] as num,
       battery: json['battery'] as num,
       macAddress: json['macAddress'] as String,
+      tagName: json['tagName'] as String,
     );
   }
 
@@ -25,6 +28,7 @@ class TrackerData {
         'createdAt' : this.createdAt,
         'value' : this.value,
         'macAddress' : this.macAddress,
+        'tagName' : this.tagName,
       };
     }
 

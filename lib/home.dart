@@ -59,14 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 Set<ScanResult> scanResultSet = Set<ScanResult> ();
                 if (snapshot.hasData) {
                   for (var i in snapshot.data) {
-                    if (i.advertisementData.manufacturerData.isNotEmpty) {
-                      var manufacturerData = i.advertisementData.manufacturerData
-                          .values.last;
-                      if (manufacturerData.length >= 15 && listEquals(
-                          manufacturerData.toList().sublist(0, 10), PLAN20MATE)) {
-                        scanResultSet.add(i);
-                      }
-                    }
+                    scanResultSet.add(i);
+                    // if (i.advertisementData.manufacturerData.isNotEmpty) {
+                    //   var manufacturerData = i.advertisementData.manufacturerData
+                    //       .values.last;
+                    //   if (manufacturerData.length >= 15 && listEquals(
+                    //       manufacturerData.toList().sublist(0, 10), PLAN20MATE)) {
+                    //     scanResultSet.add(i);
+                    //   }
+                    // }
                   }
                   List<ScanResult> scanResultData = scanResultSet.toList();
                   return ListView.builder(
@@ -74,10 +75,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       shrinkWrap: true,
                       itemCount: scanResultData.length,
                       itemBuilder: (BuildContext context, index) {
+                        String name = scanResultData[index].device.name;
+                        if(name =="")
+                          name = "unknown";
                         return ListTile(
                           title: RaisedButton(
                               child: Text(
-                                  scanResultData[index].device.name + '\n' +
+                                  name + '\n' +
                                       scanResultData[index].device.id.toString()),
                               onPressed: () {
                                 flutterBlue.stopScan();
@@ -175,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(
                         '날짜 : ' + DateFormat('MM/dd hh:mm').format(data[index].createdAt).toString() +'\n'
                         + '측정 결과 : ' +data[index].value.toString() +'분\n'
-                        + '기기 : ' + data[index].macAddress.toString()+'\n'),
+                        + '기기 : ' + data[index].tagName.toString()+'\n'),
                   ),
                 );
             },
@@ -224,9 +228,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-
 
 Future<bool> checkLocationPermissions() async {
   bool result = false;

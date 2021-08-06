@@ -6,9 +6,10 @@ final FirebaseFirestore store = FirebaseFirestore.instance;
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 
-setTackerData(String macAddress, num value, DateTime now, num battery) async{
+setTackerData(String macAddress,String tagName, num value, DateTime now, num battery) async{
   final FirebaseAuth auth = FirebaseAuth.instance;
   Map<String, dynamic> data = {
+    'tagName' : tagName,
     'createdAt' : now,
     'value' : value,
     'setUserKey' : auth.currentUser.uid,
