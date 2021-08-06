@@ -6,7 +6,7 @@ final FirebaseFirestore store = FirebaseFirestore.instance;
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 
-setTackerData(String macAddress, num value, DateTime now, num battery) async{
+setTackerData(String macAddress,String name, num value, DateTime now, num battery) async{
   final FirebaseAuth auth = FirebaseAuth.instance;
   Map<String, dynamic> data = {
     'createdAt' : now,
@@ -14,6 +14,7 @@ setTackerData(String macAddress, num value, DateTime now, num battery) async{
     'setUserKey' : auth.currentUser.uid,
     'macAddress' : macAddress,
     'battery' : battery,
+    'name' : name,
   };
 
     store.collection('BetaTestTracker').add(data);

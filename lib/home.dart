@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       itemCount: scanResultData.length,
                       itemBuilder: (BuildContext context, index) {
                         return ListTile(
-                          title: RaisedButton(
+                          title: ElevatedButton(
                               child: Text(
                                   scanResultData[index].device.name + '\n' +
                                       scanResultData[index].device.id.toString()),
@@ -175,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(
                         '날짜 : ' + DateFormat('MM/dd hh:mm').format(data[index].createdAt).toString() +'\n'
                         + '측정 결과 : ' +data[index].value.toString() +'분\n'
-                        + '기기 : ' + data[index].macAddress.toString()+'\n'),
+                        + '기기 : ' + data[index].name.toString()+'\n'),
                   ),
                 );
             },
@@ -194,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async{
                   bool result = await checkLocationPermissions();
                   if(result)
@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('트래커 시작하기'),
               ),
               SizedBox(height: 20),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async{
                   bool result = await checkLocationPermissions();
                   if(result)
@@ -212,7 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('트래커 테스트 종료'),
               ),
               SizedBox(height: 20),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async{
                   showData();
                 },
